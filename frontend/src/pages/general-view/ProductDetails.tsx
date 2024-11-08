@@ -63,7 +63,7 @@ const ProductDetails = () => {
                         scrollbar-none h-full'
                     >
                     {
-                        productImageListLoading.map((el,index) =>{
+                        productImageListLoading.map((index) =>{
                         return(
                             <div className='h-20 w-20 bg-slate-200 rounded animate-pulse' 
                                 key={"loadingImage"+index}

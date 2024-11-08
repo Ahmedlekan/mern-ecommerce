@@ -77,7 +77,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Search */}
-        <div className="hidden md:flex items-center w-full max-w-xl mx-4">
+        <div className="hidden lg:flex items-center w-full max-w-xl mx-4">
           <input
             type="text"
             className="w-full px-4 py-3 text-gray-700 border 

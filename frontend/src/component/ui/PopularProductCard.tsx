@@ -1,7 +1,7 @@
-import {star} from "../assets/icons"
+import star from "../../assets/icons/star.svg"
 
 interface PopularProductCardProps {
-    imgURL: any;
+    imgURL: string;
     name: string;
     price: string;
 }
