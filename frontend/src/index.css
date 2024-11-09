@@ -5,12 +5,26 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+/* CSS Reset and base font size */
+@layer base {
+  html {
+    font-size: 16px; /* Set a consistent base font size */
+  }
+
+  /* Reset styles to ensure consistency */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Palanquin', sans-serif; /* Default font */
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
 }
+
 
 @layer components {
   .max-container {
@@ -139,14 +153,13 @@
   @apply border text-base text-center
 }
 
-/**scrollbar hidden****/
-.scrollbar-none::-webkit-scrollbar{
-  display: none;
+.scrollbar-none {
+  /* Hide scrollbar for Chrome, Safari, and Edge */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
-
-
-
-
-
+.scrollbar-none::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Edge */
+}
 

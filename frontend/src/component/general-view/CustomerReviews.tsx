@@ -31,7 +31,7 @@ const reviews = [
 
 const CustomerReviews = () => {
   return (
-    <section className="container py-10">
+    <section className="container px-4 py-10">
       <h3 className="font-bold font-palanquin
         text-center text-3xl md:text-4xl"
       > 

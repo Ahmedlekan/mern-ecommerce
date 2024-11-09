@@ -3,7 +3,7 @@ import Toast from '../component/Toast';
 import * as authApiClient from "../apiClient/auth";
 import * as userApiClient from "../apiClient/user";
 import { useQuery } from '@tanstack/react-query';
-import { AddressType, UserType } from '../../../backend/src/shared/types';
+import {UserType } from '../../../backend/src/shared/types';
 
 type ToastMessage = {
     message: string;
@@ -22,8 +22,6 @@ type AppContextProps = {
     productId?: string
     selectedCategory: string[]
     setSelectedCategory: React.Dispatch<React.SetStateAction<string[]>>;
-    addressList: AddressType[];
-    setAddressList: (addresses: AddressType[]) => void;
 
     saveSearchValues: (
       title: string,
@@ -37,7 +35,6 @@ export const AppContextProvider = ({children}:{children: React.ReactNode}) => {
 
     const [toast, setToast] = useState<ToastMessage | undefined>(undefined)
     const [user, setUser] = useState<UserType | null>(null);
-    const [addressList, setAddressList] = useState<AddressType[]>([])
     const [selectedCategory, setSelectedCategory] = useState<string[]>([]);
 
     const [title, setTitle] = useState<string>("")
@@ -82,8 +79,6 @@ export const AppContextProvider = ({children}:{children: React.ReactNode}) => {
         saveSearchValues,
         selectedCategory,
         setSelectedCategory,
-        addressList,
-        setAddressList
     
     }}>
         {toast && (

@@ -33,7 +33,7 @@ const blogs = [
 
 const Blog = () => {
   return (
-    <div className=' container pt-10 px-4'>
+    <div className='container pt-10 px-4'>
         <h3 className="text-3xl md:text-4xl font-palanquin font-bold">
             Our <span className="text-coral-red">Latest</span> News
         </h3>
