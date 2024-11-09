@@ -17,8 +17,8 @@ const Footer = () => {
           <p className="mt-6 text-lg leading-7 
             font-montserrat sm:max-w-sm"
           >
-            Get shoes ready for the new term at your nearest Nike store.
-            Find Your Perfect Size in Store. Get Rewards
+            Get accessories ready for the new term at your nearest store.
+            Find Your Perfect Accessories in Store. Get Rewards
           </p>
           
           <div className="flex items-center gap-5 mt-8">

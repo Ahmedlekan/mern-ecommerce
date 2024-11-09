@@ -38,7 +38,7 @@ const PopularProducts = () => {
           Our <span className="text-coral-red">Popular</span> Products
         </h1>
         <p className="lg:max-w-lg mt-2 font-montserrat 
-          text-slate-gray text-base md:text-xl lg:text-2xl"
+          text-slate-gray text-base md:text-xl"
         >
           Experience top-notch quality and style with our south-after selections. 
           Discover a world of comfort, design and value

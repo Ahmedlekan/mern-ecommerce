@@ -78,22 +78,24 @@ const Navbar = () => {
 
         {/* Desktop Search */}
         <div className="hidden lg:flex items-center w-full max-w-xl mx-4">
-          <input
-            type="text"
-            className="w-full px-4 py-3 text-gray-700 border 
-              border-gray-300 rounded-l-md focus:outline-none focus:ring-2 
-              focus:ring-yellow-500 focus:border-transparent"
-            placeholder="Search product here..."
-            onChange={(event) => setTitle(event.target.value)}
-          />
-          <button
-            className="px-4 py-3 text-white bg-yellow-500 
-              rounded-r-md hover:bg-yellow-600 focus:outline-none 
-              focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-            onClick={handleSubmit}
-          >
-            <FaSearch size={25} />
-          </button>
+          <div className="flex w-full">
+            <input
+              type="text"
+              className="w-full h-12 px-4 text-gray-700 border border-gray-300 
+                rounded-l-md focus:outline-none focus:ring-2 focus:ring-yellow-500 
+                focus:border-transparent"
+              placeholder="Search product here..."
+              onChange={(event) => setTitle(event.target.value)}
+            />
+            <button
+              className="w-12 h-12 flex items-center justify-center bg-yellow-500 
+                rounded-r-md hover:bg-yellow-600 focus:outline-none focus:ring-2 
+                focus:ring-yellow-500 focus:border-transparent"
+              onClick={handleSubmit}
+            >
+              <FaSearch size={20} className="text-white" />
+            </button>
+          </div>
         </div>
 
         {/* Desktop Menu */}

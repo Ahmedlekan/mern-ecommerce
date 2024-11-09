@@ -13,7 +13,7 @@ const ReviewCard = ({imgURL, customerName, rating, feedback}:ReviewCardPArops) =
         <img src={imgURL} alt={customerName}
          className="object-contain w-[120px] h-[120px] rounded-full"
          />
-         <p className="max-w-sm text-center mt-6 md:text-xl lg:text-2xl font-montserrat 
+         <p className="max-w-sm text-center mt-6 md:text-xl font-montserrat 
           text-slate-gray">{feedback}</p>
          <div className="mt-4 flex justify-center items-center gap-2.5">
             <img src={star} alt="star" width={24} height={24} 

@@ -3,8 +3,11 @@ import headphone from "../..//assets/images/headphone.webp"
 import bg2 from "../../assets/images/bg2.webp"
 import bg3 from "../../assets/images/bg3.png"
 import bg4 from "../../assets/images/bg4.webp"
+import { useNavigate } from "react-router"
 
 const Hero = () => {
+
+  const navigate = useNavigate()
   
   return (
     <section className="container mx-auto w-full h-full"
@@ -31,7 +34,8 @@ const Hero = () => {
               From $999.00 or $41.62/mo. for 24 mo. Footnote*
             </p>
             <button className="mt-4 bg-coral-red text-white py-2 px-4 
-              rounded-lg hover:bg-blue-700"
+              rounded-lg hover:bg-red-500"
+              onClick={()=>navigate("/product-category")}
             >
               Buy Now
             </button>

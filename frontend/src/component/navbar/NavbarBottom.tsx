@@ -8,7 +8,7 @@ const NavbarBottom = () => {
           <Link to="/">
             <div className=' flex gap-2'>
                 <p className='border-r-[2px] border-gray-500 
-                  px-2 text-xs md:text-xl'>
+                  px-2 text-xs md:text-lg'>
                     SHOP CAREGORIES
                 </p>
             </div>
@@ -16,22 +16,22 @@ const NavbarBottom = () => {
         </div>
 
         <div className="flex items-center space-x-4 text-white">
-          <Link to="/" className="hover:text-yellow-500 text-xs md:text-xl">
+          <Link to="/" className="hover:text-yellow-500 text-xs md:text-lg">
            HOME
           </Link>
           
           <Link to="/product-category" className="hover:text-yellow-500 
-            text-xs md:text-xl whitespace-nowrap">
+            text-xs md:text-lg whitespace-nowrap">
             OUR STORES
           </Link>
           
           <Link to="/" className="hover:text-yellow-500 
-            text-sm md:text-xl hidden md:block">
+            text-sm md:text-lg hidden md:block">
             BLOGS
           </Link>
           
           <Link to="/" className="hover:text-yellow-500 text-sm 
-            md:text-xl hidden md:block">
+            md:text-lg hidden md:block">
             CONTACTS
           </Link>
 

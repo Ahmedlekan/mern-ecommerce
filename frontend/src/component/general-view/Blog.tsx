@@ -8,26 +8,26 @@ const blogs = [
   {
     image: blog1,
     date: 'July 4, 2024',
-    title: 'Product 1',
-    description: 'This is a brief description of Product 1.',
+    title: 'AI Development',
+    description: 'This is a brief description of Product.',
   },
   {
     image: blog2,
     date: 'July 5, 2024',
-    title: 'Product 2',
-    description: 'This is a brief description of Product 2.',
+    title: 'Ecommerce',
+    description: 'This is a brief description of Product.',
   },
   {
     image: blog3,
     date: 'July 6, 2024',
-    title: 'Product 3',
-    description: 'This is a brief description of Product 3.',
+    title: 'Latest Trend',
+    description: 'This is a brief description of Product.',
   },
   {
     image: blog4,
     date: 'July 7, 2024',
-    title: 'Product 4',
-    description: 'This is a brief description of Product 4.',
+    title: 'Gadgets',
+    description: 'This is a brief description of Product.',
   },
 ];
 
@@ -39,18 +39,18 @@ const Blog = () => {
         </h3>
 
         <div className="container mx-auto p-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {blogs.map((product, index) => (
-          <BlogCard
-            key={index}
-            image={product.image}
-            date={product.date}
-            title={product.title}
-            description={product.description}
-          />
-        ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {blogs.map((product, index) => (
+              <BlogCard
+                key={index}
+                image={product.image}
+                date={product.date}
+                title={product.title}
+                description={product.description}
+              />
+            ))}
+          </div>
       </div>
-    </div>
     </div>
   )
 }

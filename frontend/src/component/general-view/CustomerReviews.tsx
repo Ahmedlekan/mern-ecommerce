@@ -37,19 +37,20 @@ const CustomerReviews = () => {
       > 
         What Our <span className="text-coral-red"> Customers </span> Says? 
       </h3>
-      <p className="mt-4 md:text-xl lg:text-2xl font-montserrat 
+      <p className="mt-4 md:text-xl font-montserrat 
           text-slate-gray m-auto max-w-lg text-center">Hear genuine stories 
         from our satisfied customers about their exception experience with us
       </p>
 
-      <div className="mt-4 flex-1 flex justify-evenly items-center 
-        max-lg:flex-col gap-14"
+      <div className="container mx-auto p-6"
       >
-        {reviews.map( review =>(
-          <div key={review.customerName}>
-            <ReviewCard {...review} />
-          </div>
-        ) )}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {reviews.map( review =>(
+            <div key={review.customerName}>
+              <ReviewCard {...review} />
+            </div>
+          ) )}
+        </div>
       </div>
 
     </section>

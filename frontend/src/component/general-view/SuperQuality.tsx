@@ -12,7 +12,7 @@ const SuperQuality = () => {
           We privide you <span className="text-coral-red">super </span>
           <span className="text-coral-red">Quality</span> products
         </h2>
-        <p className="mt-4 text-base md:text-xl lg:text-2xl font-montserrat 
+        <p className="mt-4 text-base md:text-xl font-montserrat 
           text-slate-gray">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
           Iste inventore illo dolorum laudantium voluptatum modi, 

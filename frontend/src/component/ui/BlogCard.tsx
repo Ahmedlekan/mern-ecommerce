@@ -15,7 +15,7 @@ const BlogCard = ({ image, date, title, description }: BlogCardProps) => {
           <h3 className="text-xl font-bold my-2">{title}</h3>
           <p className="text-gray-700 mb-4">{description}</p>
           <button className="mt-4 bg-coral-red text-white py-2 px-4 
-              rounded-lg hover:bg-blue-700"
+              rounded-lg hover:bg-red-500"
             >
               Read More
           </button>
