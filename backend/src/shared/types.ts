@@ -59,12 +59,3 @@ export type CartType = {
   items: CartItem[]; 
 }
 
-
-export type AddressType = {
-  userId: string
-  address: string
-  city: string
-  pincode: string
-  phone: string
-  notes: string
-}
