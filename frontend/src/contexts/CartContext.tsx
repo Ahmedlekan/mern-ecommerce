@@ -11,6 +11,10 @@ interface CartContextType {
     addToCartHandler: (product: ProductsType) => Promise<void>;
     updateQuantityHandler: (productId: string, quantity: number) => Promise<void>;
     deleteCartItemHandler: (productId: string) => Promise<void>;
+
+    favoriteItems: ProductsType[];
+    toggleFavorite: (product: ProductsType) => void;
+    isFavorite: (productId: string) => boolean
 }
 
 // Define props for CartProvider
@@ -25,6 +29,18 @@ const CartContext = createContext<CartContextType | null>(null);
 export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     const [cartItems, setCartItems] = useState<CartItemItemsProps[]>([]);
     const { showToast } = useAppContext();
+    const [favoriteItems, setFavoriteItems] = useState<ProductsType[]>([]);
+
+    const toggleFavorite = (product: ProductsType) => {
+        setFavoriteItems((prevFavorites) => {
+            const isAlreadyFavorite = prevFavorites.some(item => item._id === product._id);
+            return isAlreadyFavorite
+                ? prevFavorites.filter(item => item._id !== product._id)
+                : [...prevFavorites, product];
+        });
+    };
+
+    const isFavorite = (productId: string) => favoriteItems.some(item => item._id === productId);
 
     // Fetch initial cart items
     const { data: fetchedCartItems } = useQuery({
@@ -92,7 +108,17 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     };
 
     return (
-        <CartContext.Provider value={{ cartItems, addToCartHandler, updateQuantityHandler, deleteCartItemHandler }}>
+        <CartContext.Provider 
+            value={{ 
+                cartItems, 
+                addToCartHandler, 
+                updateQuantityHandler, 
+                deleteCartItemHandler ,
+                favoriteItems, 
+                toggleFavorite, 
+                isFavorite
+            }}
+        >
             {children}
         </CartContext.Provider>
     );

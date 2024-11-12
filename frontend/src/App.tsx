@@ -15,6 +15,7 @@ import Account from "./pages/general-view/Account"
 import Checkout from "./pages/general-view/Checkout"
 import ProductDetails from "./pages/general-view/ProductDetails"
 import ProductCategory from "./pages/general-view/ProductCategory"
+import Favorites from "./pages/general-view/Favorites"
 
 
 const AuthenticatedLayout = () => (
@@ -40,6 +41,7 @@ function App() {
             <Route path="login" element={<SignIn />} />
             <Route path="product/:productId" element={<ProductDetails />} />
             <Route path="product-category/" element={<ProductCategory />} />
+            <Route path="favorite" element={<Favorites />} />
 
             {isLoggedIn && (
               <Route element={<AuthenticatedLayout />}>

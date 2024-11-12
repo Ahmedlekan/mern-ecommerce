@@ -23,7 +23,7 @@ const Navbar = () => {
   const [openCartSheet, setOpenCartSheet] = useState(false);
   const [toggleMenu, setToggleMenu] = useState(false);
   const {isLoggedIn, showToast, user, setUser, saveSearchValues} = useAppContext()
-  const {cartItems} = useCartContext()
+  const {cartItems, favoriteItems} = useCartContext()
   const queryClient = useQueryClient()
   const navigate = useNavigate()
 
@@ -103,11 +103,15 @@ const Navbar = () => {
           items-center gap-8 text-white"
         >
           <Link to="/favorite">
-            <div className="flex justify-center items-center gap-4">
-              <img src={wishlist} className="h-10 w-10" alt="wishlist" />
+            <div className="flex justify-center items-center gap-1 relative">
+              <img src={wishlist} className="h-8 w-8" alt="wishlist" />
+              <span className="absolute top-[-15px] right-[2px] 
+                font-bold text-xs py-1 px-2 bg-red-500 rounded-full"
+              >
+                {favoriteItems?.length || 0}
+              </span>
               <div className="flex flex-col items-center">
                 <p>Favorite</p>
-                <p>Wishlist</p>
               </div>
             </div>
           </Link>
@@ -116,39 +120,56 @@ const Navbar = () => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Avatar className="bg-black rounded-full cursor-pointer">
-                  <AvatarFallback className="bg-black rounded-full py-2 px-3 text-white font-extrabold">
+                  <AvatarFallback className="bg-black rounded-full py-2 px-3 
+                    text-white font-extrabold"
+                  >
                     {user?.name[0].toUpperCase()}
                   </AvatarFallback>
                 </Avatar>
               </DropdownMenuTrigger>
-              <DropdownMenuContent side="right" className="w-56 bg-white text-black p-2 mt-2 shadow-lg rounded-md">
+              <DropdownMenuContent side="right" className="w-56 bg-white text-black 
+                p-2 mt-2 shadow-lg rounded-md"
+              >
                 <DropdownMenuLabel>Logged in as {user?.name}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={() => { navigate("/account"); setToggleMenu(false); }} className="flex items-center cursor-pointer">
+                <DropdownMenuItem onClick={() => { navigate("/account"); 
+                    setToggleMenu(false); }} className="flex items-center 
+                      cursor-pointer"
+                >
                   Account
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={() => { handleClick(); setToggleMenu(false); }} className="flex items-center cursor-pointer">
+                <DropdownMenuItem onClick={() => { handleClick(); setToggleMenu(false); }} 
+                  className="flex items-center cursor-pointer"
+                >
                   Logout
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
-            <Link to="/login" className="flex items-center gap-4" onClick={() => setToggleMenu(false)}>
+            <Link to="/login" className="flex items-center gap-4" 
+              onClick={() => setToggleMenu(false)}
+            >
               <p>Login</p>
               <img src={userImg} alt="User Icon" />
             </Link>
           )}
 
           <Sheet open={openCartSheet} onOpenChange={() => setOpenCartSheet(false)}>
-            <Button onClick={() => setOpenCartSheet(true)} size="icon" className="relative">
+            <Button onClick={() => setOpenCartSheet(true)} size="icon" 
+              className="relative"
+            >
               <FaShoppingCart className="w-6 h-6" />
-              <span className="absolute top-[-5px] right-[2px] font-bold text-sm">
+              <span className="absolute top-[-5px] right-[2px] 
+                font-bold text-sm"
+              >
                 {cartItems?.length || 0}
               </span>
               <span className="sr-only">User cart</span>
             </Button>
-            <UserCartWrapper setOpenCartSheet={setOpenCartSheet} cartItems={cartItems && cartItems.length > 0 ? cartItems : []} />
+            <UserCartWrapper setOpenCartSheet={setOpenCartSheet} 
+              cartItems={cartItems && cartItems.length > 0 ? cartItems : []}
+            />
           </Sheet>
         </ul>
 
@@ -177,8 +198,8 @@ const Navbar = () => {
                 onChange={(event) => setTitle(event.target.value)}
               />
               <button
-                className="flex items-center justify-between mt-4 w-full px-4 py-3 text-white 
-                bg-yellow-500 rounded-md hover:bg-yellow-600 
+                className="flex items-center justify-between mt-4 w-full px-4 
+                  py-3 text-white bg-yellow-500 rounded-md hover:bg-yellow-600 
                   focus:outline-none focus:ring-2 focus:ring-yellow-500
                   focus:border-transparent"
                 onClick={handleSubmit}
@@ -189,9 +210,14 @@ const Navbar = () => {
 
             {/* Mobile Links */}
             <div className="flex flex-col gap-4 items-center">
-              <Link to="/favorite" className="flex items-center gap-2" 
+              <Link to="/favorite" className="flex flex-col items-center 
+                gap-1 relative" 
                 onClick={() => setToggleMenu(false)}
               >
+                <span className="font-bold text-xs py-1 px-2 bg-red-500 rounded-full"
+                >
+                {favoriteItems?.length || 0}
+              </span>
                 <p className="text-lg">Favorite</p>
               </Link>
               {isLoggedIn ? (

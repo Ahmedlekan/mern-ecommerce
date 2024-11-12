@@ -32,7 +32,6 @@ type AppContextProps = {
 const AppContext = createContext<AppContextProps | undefined>(undefined)
 
 export const AppContextProvider = ({children}:{children: React.ReactNode}) => {
-
     const [toast, setToast] = useState<ToastMessage | undefined>(undefined)
     const [user, setUser] = useState<UserType | null>(null);
     const [selectedCategory, setSelectedCategory] = useState<string[]>([]);
