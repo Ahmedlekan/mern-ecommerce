@@ -1,7 +1,7 @@
 import {useForm} from "react-hook-form"
 import * as authApiClient from "../../apiClient/auth"
 import { useAppContext } from "../../contexts/AppContext";
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useNavigate, useLocation} from "react-router-dom";
 import { useMutation, useQueryClient} from "@tanstack/react-query";
 
 export type LoginFormDataprops = {
@@ -15,6 +15,9 @@ const SignIn = () => {
     const queryClient = useQueryClient()
     const {showToast} = useAppContext()
     const navigate = useNavigate()
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
 
     const mutation = useMutation({
         mutationFn: authApiClient.signIn,
@@ -31,6 +34,9 @@ const SignIn = () => {
 
     const onSubmit = handleSubmit((data)=>{
         mutation.mutate(data)
+
+        // Redirect to the intended page after login
+    navigate(from, { replace: true });
     })
 
   return (
@@ -69,8 +75,8 @@ const SignIn = () => {
                 <span>
                     <button
                         type="submit"
-                        className="bg-blue-600 text-white p-2 font-bold 
-                        hover:bg-blue-500 text-xl"
+                        className="bg-coral-red text-white p-2 font-bold 
+                        hover:bg-red-5000 text-xl"
                     >
                         Sign In
                     </button>

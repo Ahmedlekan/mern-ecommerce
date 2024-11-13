@@ -5,10 +5,11 @@ import { CartItemItemsProps} from '../../../backend/src/shared/types';
 import { ProductsType } from '../../../backend/src/shared/types';
 import { useAppContext } from './AppContext';
 import { addToCart, updateCartQuantity, deleteCartItem } from '../apiClient/general';
+// import { useNavigate } from 'react-router';
 
 interface CartContextType {
     cartItems: CartItemItemsProps[];
-    addToCartHandler: (product: ProductsType) => Promise<void>;
+    addToCartHandler: (product: ProductsType, redirectToCheckout?: boolean) => Promise<void>;
     updateQuantityHandler: (productId: string, quantity: number) => Promise<void>;
     deleteCartItemHandler: (productId: string) => Promise<void>;
 
@@ -31,12 +32,24 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     const { showToast } = useAppContext();
     const [favoriteItems, setFavoriteItems] = useState<ProductsType[]>([]);
 
+    // Load favorite items from localStorage on initial load
+    useEffect(() => {
+        const savedFavorites = localStorage.getItem('favoriteItems');
+        if (savedFavorites) {
+            setFavoriteItems(JSON.parse(savedFavorites));
+        }
+    }, []);
+
     const toggleFavorite = (product: ProductsType) => {
         setFavoriteItems((prevFavorites) => {
             const isAlreadyFavorite = prevFavorites.some(item => item._id === product._id);
-            return isAlreadyFavorite
+            const updatedFavorites = isAlreadyFavorite
                 ? prevFavorites.filter(item => item._id !== product._id)
                 : [...prevFavorites, product];
+
+                localStorage.setItem('favoriteItems', JSON.stringify(updatedFavorites));
+
+            return updatedFavorites
         });
     };
 
@@ -45,7 +58,8 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     // Fetch initial cart items
     const { data: fetchedCartItems } = useQuery({
         queryKey:["fetchCartItems"],
-        queryFn: generalApiClient.fetchCartItems
+        queryFn: generalApiClient.fetchCartItems,
+        staleTime: 1000 * 60 * 5, // cache data for 5 minutes
     });
 
     useEffect(() => {
@@ -54,9 +68,14 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
         }
     }, [fetchedCartItems]);
 
-    const addToCartHandler = async (product: ProductsType) => {
+    const addToCartHandler = async (product: ProductsType, redirectToCheckout = false) => {
+        
         try {
+
+            // Add product to the cart
             await addToCart(product._id);
+            
+            // Update cartItems state
             setCartItems((prevItems) => {
                 const existingItem = prevItems.find(item => item.productId === product._id);
     
@@ -79,7 +98,25 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
                     return [...prevItems, newItem];
                 }
             });
+
+            // If the product is a favorite, remove it from favoriteItems
+        setFavoriteItems((prevFavorites) => {
+            const isFavorite = prevFavorites.some(item => item._id === product._id);
+            if (isFavorite) {
+                const updatedFavorites = prevFavorites.filter(item => item._id !== product._id);
+                
+                // Save updated favorites to localStorage
+                localStorage.setItem('favoriteItems', JSON.stringify(updatedFavorites));
+
+                return updatedFavorites;
+            }
+            return prevFavorites;
+        });
+
             showToast({ message: "Product added to cart", type: "SUCCESS" });
+            if (redirectToCheckout){
+                window.location.href = "/checkout";
+            }
         } catch (error) {
             showToast({ message: "Failed to add product to cart", type: "ERROR" });
         }

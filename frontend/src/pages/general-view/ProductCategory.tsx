@@ -2,13 +2,35 @@ import React, {useState} from 'react'
 import ProductCard from '../../component/general-view/ProductCard'
 import * as generalApiclient from "../../apiClient/general"
 import { useQuery } from "@tanstack/react-query"
-import { Skeleton } from '../../component/ui/Skeleton'
 import CategoryFilter from '../../component/ui/CategoryFilter'
 import BrandFilter from '../../component/ui/BrandFilter'
 import PriceFilter from '../../component/ui/PriceFilter'
 import Pagination from '../../component/ui/Pagination'
 import { useAppContext } from '../../contexts/AppContext'
 import { ProductsType } from '../../../../backend/src/shared/types'
+
+
+const ShimmerSkeleton: React.FC<{ height: string; width: string }> = ({ height, width }) => (
+    <div
+      className={`bg-gray-300 ${height} ${width} rounded-md relative overflow-hidden`}
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent 
+        via-gray-200 to-transparent animate-shimmer"></div>
+    </div>
+  );
+  
+  export const ProductSkeleton: React.FC = () => (
+    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-4">
+      {Array.from({ length: 8 }).map((_, index) => (
+        <div key={index} className="space-y-4">
+          <ShimmerSkeleton height="h-40" width="w-full" />
+          <ShimmerSkeleton height="h-4" width="w-3/4" />
+          <ShimmerSkeleton height="h-4" width="w-1/2" />
+        </div>
+      ))}
+    </div>
+  );
+
 
 const ProductCategory = () => {
     const {title, setTitle, selectedCategory, setSelectedCategory} = useAppContext()
@@ -34,7 +56,7 @@ const ProductCategory = () => {
       })
 
     if (isLoading){
-        return <Skeleton />
+        return <ProductSkeleton />
     }
     if (isError || !product) return <p>No Products Found</p>;
 

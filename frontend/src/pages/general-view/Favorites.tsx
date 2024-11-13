@@ -1,13 +1,9 @@
-
-
 import { useCartContext } from "../../contexts/CartContext";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 const Favorites = () => {
 
     const {favoriteItems, toggleFavorite, addToCartHandler} = useCartContext()
-    const navigate = useNavigate()
 
     if (favoriteItems.length === 0) {
         return <p>Your favorites list is empty.</p>;
@@ -50,7 +46,7 @@ const Favorites = () => {
                             </button>
                             <button className="bg-coral-red text-white py-2 
                                 px-4 rounded-md shadow hover:bg-red-500 mb-2"
-                                onClick={()=> navigate("/checkout")}
+                                onClick={() => addToCartHandler(product, true)} // Pass true to redirect to checkout
                             >
                                 Buy It Now
                             </button>

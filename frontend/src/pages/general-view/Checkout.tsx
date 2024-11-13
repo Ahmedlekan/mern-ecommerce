@@ -57,49 +57,52 @@ const handlePayment = async () => {
       : 0;
 
   return (
-    <div className="flex flex-col">
-      <div className="relative h-[300px] w-full overflow-hidden">
-        <img src={img} className="h-full w-full object-cover object-center" />
+    <div className="flex flex-col bg-white rounded-xl shadow-lg p-6 max-w-4xl mx-auto">
+      <div className="relative h-[300px] w-full overflow-hidden rounded-xl shadow-md">
+        <img src={img} alt="Product image" className="h-full w-full object-cover object-center" />
       </div>
-      
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5 p-5">
-        
+
+      <div className="mt-6">
         {cartItems && cartItems.length > 0 ? (
-          <div className="flex flex-col gap-4">
-          {cartItems && cartItems.length > 0
-            ? cartItems.map((item) => (
-                <UserCartItemsContent item={item} />
-              ))
-            : null}
-          
-          <div className="mt-8 space-y-4">
-            <div className="flex justify-between">
-              <span className="font-bold">Total</span>
-              <span className="font-bold">${totalCartAmount}</span>
+          <div className="flex flex-col gap-6">
+            {/* Cart Items List */}
+            {cartItems.map((item) => (
+              <UserCartItemsContent key={item.productId} item={item} />
+            ))}
+
+            {/* Total Price Section */}
+            <div className="flex justify-between items-center mt-6 p-4 
+              bg-gray-100 rounded-lg shadow-inner"
+            >
+              <span className="font-semibold text-lg">Total</span>
+              <span className="font-semibold text-lg text-red-500">${totalCartAmount}</span>
+            </div>
+
+            {/* Checkout Button */}
+            <div className="mt-6">
+              <Button 
+                onClick={handlePayment} 
+                className="w-full py-3 bg-coral-red text-white rounded-lg 
+                  hover:bg-red-500 transition duration-300 ease-in-out" 
+                disabled={loading}
+              >
+                {loading ? 'Processing...' : 'Checkout with Stripe'}
+              </Button>
             </div>
           </div>
-          <div className="mt-4 w-full">
-            <Button onClick={handlePayment} className="w-full" disabled={loading}>
-                {loading ? "Processing..." : "Checkout with Stripe"}
-            </Button>
-          </div>
-        </div>
-        ):(
-          <div className="flex flex-col items-center gap-2">
-            <FaShoppingCart className="w-6 h-6" />
-            <p className=" font-bold text-center">Your cart is empty.</p>
-            <Button
-              onClick={() => {
-              navigate("/product-category");
-              
-              }}
-              className="w-full mt-6"
+        ) : (
+          <div className="flex flex-col items-center gap-4 p-6 bg-gray-50 rounded-lg shadow-inner">
+            <FaShoppingCart className="w-12 h-12 text-gray-400" />
+            <p className="font-semibold text-center text-gray-600">Your cart is empty.</p>
+            <Button 
+              onClick={() => navigate('/product-category')} 
+              className="w-full mt-4 py-3 bg-coral-red text-white 
+                rounded-lg hover:bg-red-500 transition duration-300 ease-in-out"
             >
               Let's go shopping
             </Button>
           </div>
         )}
-
       </div>
     </div>
   )
