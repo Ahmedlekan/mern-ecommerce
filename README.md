@@ -1,6 +1,6 @@
 <div align="center">
   <br />
-       <img width="952" alt="Image" src="https://github.com/user-attachments/assets/8c711123-1b47-4575-8a6a-ffe3dcbbb559" alt="Backend Dashboard" />
+       <img width="767" alt="Image" src="https://github.com/user-attachments/assets/18945c70-e675-4011-8909-1703a26b4287" alt="Banner" />
     </a>
   <br />
 
@@ -15,7 +15,7 @@
   </div>
 </div>
 
-<h1 align="center">📚 MERN Bookstore</h1>
+<h1 align="center"> MERN Ecommerce Project</h1>
 
 A full-stack ecommerce application built using the MERN stack (MongoDB, Express.js, React, Node.js). This project allows users to browse, search, and purchase products online with authentication, cart management, and an admin dashboard for managing inventor.
 
@@ -52,7 +52,7 @@ Make sure you have the following installed on your machine:
 **Cloning the Repository**
 
 ```bash
-git clone https://github.com/Ahmedlekan/bookstore.git
+git clone https://github.com/Ahmedlekan/mern-ecommerce.git
 cd nike
 ```
 
