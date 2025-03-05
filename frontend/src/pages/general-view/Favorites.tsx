@@ -37,6 +37,7 @@ const Favorites = () => {
                                 Price: <span className="font-semibold">${product.salePrice.toFixed(2)}</span>
                             </p>
                         </div>
+                        
                         <div className="flex flex-col items-end ml-4">
                             <button
                                 onClick={() => toggleFavorite(product)}
@@ -60,7 +61,7 @@ const Favorites = () => {
                     </div>
                 ))}
             </div>
-        </div>
+    </div>
   )
 }
 

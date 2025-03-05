@@ -18,7 +18,6 @@ export const addProduct = async (productFormData: FormData)=>{
 }
 
 //fetch all product from the backend and connect to the front-end
-
 export const fetchAllProduct = async (): Promise<ProductsType[]>=>{
     const response = await fetch(`${API_BASE_URL}/api/admin`, {
         credentials: "include",

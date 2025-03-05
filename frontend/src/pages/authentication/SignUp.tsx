@@ -9,7 +9,7 @@ export type RegisterFormDataprops = {
     email: string;
     password: string;
     confirmPassword: string;
-  };
+};
 
 const Register = () => {
     const {register, watch, handleSubmit, formState:{errors}} = useForm<RegisterFormDataprops>()
@@ -38,21 +38,6 @@ const Register = () => {
         <div className="bg-white p-5 w-full max-w-sm mx-auto">
             <form className="flex flex-col gap-5" onSubmit={onSubmit}>
                 <h2 className="text-3xl font-bold">Create an Account</h2>
-
-                {/* <div className='w-20 h-20 mx-auto relative overflow-hidden rounded-full'>
-                
-                    <div>
-                        <img src="/" alt='login icons'/>
-                    </div>
-                    <label>
-                        <div className='text-xs bg-opacity-80 bg-slate-200 pb-4 pt-2
-                            cursor-pointer text-center absolute bottom-0 w-full'
-                        >
-                            Upload  Photo
-                        </div>
-                        <input type='file' className='hidden' onChange={()=>{}}/>
-                    </label>
-                </div> */}
                 <label className="text-gray-700 text-sm font-bold">
                         Name
                         <input 
@@ -122,6 +107,7 @@ const Register = () => {
                 </span>
 
             </form>
+            
             <p className='my-5'>Already have account ?
                 <Link to={"/login"} className=' text-coral-red hover:text-red-700 
                     hover:underline'>

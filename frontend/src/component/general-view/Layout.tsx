@@ -12,7 +12,7 @@ const Layout = () => {
         <Navbar />
         <NavbarBottom />
 
-        <div className='container mx-auto pt-4 pb-10 flex-1"'>
+        <div className='container mx-auto pt-4 pb-10 flex-1'>
           <Outlet />
         </div>
         <Footer />

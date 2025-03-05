@@ -1,31 +1,44 @@
-import star from "../../assets/icons/star.svg"
+import { motion } from "framer-motion";
+import { FaStar } from "react-icons/fa";
 
-interface ReviewCardPArops {
-    imgURL?: string;
-    customerName: string;
-    rating: number;
-    feedback: string;
-}
+type ReviewCardProps = {
+  imgURL: string;
+  customerName: string;
+  rating: number;
+  feedback: string;
+};
 
-const ReviewCard = ({imgURL, customerName, rating, feedback}:ReviewCardPArops) => {
+const ReviewCard = ({ imgURL, customerName, rating, feedback }: ReviewCardProps) => {
+  // Framer Motion Variants
+  const hoverEffect = {
+    scale: 1.05,
+    transition: { type: "spring", stiffness: 300 },
+  };
+
   return (
-    <div className="flex justify-center items-center flex-col">
-        <img src={imgURL} alt={customerName}
-         className="object-contain w-[120px] h-[120px] rounded-full"
-         />
-         <p className="max-w-sm text-center mt-6 md:text-xl font-montserrat 
-          text-slate-gray">{feedback}</p>
-         <div className="mt-4 flex justify-center items-center gap-2.5">
-            <img src={star} alt="star" width={24} height={24} 
-                className="object-containe m-0" 
+    <motion.div
+      className="bg-white shadow-lg rounded-lg overflow-hidden p-6 cursor-pointer"
+      whileHover={hoverEffect}
+    >
+      <div className="flex flex-col items-center gap-4">
+        <img
+          src={imgURL}
+          alt={customerName}
+          className="w-20 h-20 rounded-full object-cover"
+        />
+        <h3 className="text-xl font-bold">{customerName}</h3>
+        <div className="flex items-center gap-2">
+          {Array.from({ length: 5 }, (_, i) => (
+            <FaStar
+              key={i}
+              className={`text-${i < rating ? "coral-red" : "gray-300"} text-lg`}
             />
-            <p className="text-xl font-montserrat text-slate-gray">({rating})</p>
-         </div>
-         <h3 className="mt-1 font-palanquin text-xl md:text-3xl font-bold text-center">
-            {customerName}
-        </h3>
-    </div>
-  )
-}
+          ))}
+        </div>
+        <p className="text-center text-gray-700">{feedback}</p>
+      </div>
+    </motion.div>
+  );
+};
 
-export default ReviewCard
+export default ReviewCard;

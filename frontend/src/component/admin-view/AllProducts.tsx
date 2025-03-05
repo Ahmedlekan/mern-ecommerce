@@ -30,7 +30,9 @@ const AllProducts = ({setOpenCreateProductsDialog}: AllProductsProps) => {
             <h2 className='font-bold text-lg'>All Product</h2>
             <button  className='border-2 border-red-600 text-red-600 hover:bg-red-600 
                 hover:text-white transition-all py-1 px-3 rounded-full ' 
-                onClick={()=>setOpenCreateProductsDialog(true)}>Upload Product</button>
+                onClick={()=>setOpenCreateProductsDialog(true)}>
+                  Upload Product
+            </button>
         </div>
 
         {/**all product */}
@@ -39,7 +41,6 @@ const AllProducts = ({setOpenCreateProductsDialog}: AllProductsProps) => {
             allProduct?.map((product, index)=>{
               return(
                 <AdminProductCard data={product} key={index+"allProduct"} />
-                
               )
             })
           }

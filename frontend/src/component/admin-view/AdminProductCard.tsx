@@ -16,9 +16,6 @@ const AdminProductCard = ({data}: AdminProductProps) => {
     <Card className='w-full max-w-sm mx-auto'>
        
        <div>
-            {/* <div className='w-32 h-32 flex justify-center items-center'>
-              <img src={data?.imageUrls[0] }  className='mx-auto object-fill h-full'/>   
-            </div> */}
           <div className="relative">
             <img
               src={data?.imageUrls[0]}

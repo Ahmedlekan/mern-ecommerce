@@ -110,8 +110,6 @@ export const createPaymentIntent = async (cartItems: CartItemItemsProps[]) => {
     return url;
 };
 
-
-
 // fetch product by id
 export const fetchProductById = async (productId: string):Promise<ProductsType> =>{
     const response = await fetch(`${API_BASE_URL}/api/general/${productId}`, {

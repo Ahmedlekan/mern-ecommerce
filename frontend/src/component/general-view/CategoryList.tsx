@@ -64,7 +64,7 @@ const isSmallScreen = useMediaQuery({ maxWidth: 767 });
 
   return (
     <div className='container mx-auto pt-16 p-4 bg-gray-100 
-        overflow-scroll scrollbar-none'
+        overflow-scroll scrollbar-none font-montserrat'
     >
 
         <div className='flex items-center gap-4 justify-between'>
@@ -135,44 +135,3 @@ const isSmallScreen = useMediaQuery({ maxWidth: 767 });
 }
 
 export default CategoryList
-
-
-{/* <div className=''>
-          {isSmallScreen ? (
-            <Slider {...settings}>
-            {section.map((item, index)=> (
-              <div key={index} className='p-3'>
-                <div className='flex flex-col items-center gap-2 bg-white rounded-lg 
-                  border border-black p-2 hover:scale-105 hover:duration-300'
-                >
-                  <p className='text-sm font-medium text-center'>{item.title}</p>
-                  <Image src={item.image} 
-                    alt='item img' 
-                    width={200} 
-                    height={150} 
-                    className='w-[250px] h-[200px] rounded-lg object-contain'
-                  />
-                </div>
-              </div>
-            ))}
-          </Slider>
-          ):(
-            <Slider {...settings}>
-            {section.map((item, index)=> (
-              <div key={index} className='p-3'>
-                <div className='flex flex-col items-center gap-5 bg-white rounded-lg 
-                  border border-black p-2 hover:scale-105 hover:duration-300'
-                >
-                  <p className='sm:text-sm md:text-lg font-medium text-center'>{item.title}</p>
-                  <Image src={item.image} 
-                    alt='item img' 
-                    width={300} 
-                    height={250} 
-                    className='w-[300px] h-[220px] rounded-lg object-contain'
-                  />
-                </div>
-              </div>
-            ))}
-          </Slider>
-          )}
-        </div> */}

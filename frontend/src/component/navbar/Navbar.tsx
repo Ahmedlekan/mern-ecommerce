@@ -7,7 +7,6 @@ import wishlist from "../../assets/images/wishlist.svg"
 import { useAppContext } from "../../contexts/AppContext";
 import * as authClient from "../../apiClient/auth"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
-// import ROLE from "../../constant/role";
 import { Sheet } from "../ui/Sheet";
 import Button from "../ui/Button";
 import UserCartWrapper from "../general-view/CartWrapper";
