@@ -30,7 +30,7 @@ export const footerLinks = [
         title: "Get in touch",
         links: [
             { name: "customer@diplo.com", link: "mailto:customer@diplo.com" },
-            { name: "+2348109087441", link: "tel:+2348109087441" },
+            { name: "+1 438-994-4504", link: "+1 438-994-4504" },
         ],
     },
 ];

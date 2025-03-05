@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const NavbarBottom = () => {
   return (
-    <nav className="bg-gray-800 py-2 px-4">
+    <nav className="bg-gray-800 py-2 px-4 font-montserrat">
       <div className="container mx-auto flex gap-32">
         <div className="text-white">
           <Link to="/">

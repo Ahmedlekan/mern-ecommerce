@@ -46,13 +46,13 @@ const SuperQuality = () => {
           <span className="text-coral-red">Quality</span> products
         </h2>
         <p className="mt-4 text-base md:text-xl font-palanquin text-slate-gray">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-          Iste inventore illo dolorum laudantium voluptatum modi, 
-          ex consequuntur atque eaque expedita! Eveniet consequatur 
-          consectetur molestias consequuntur.
+          Experience premium craftsmanship and innovation with our top-tier products,  
+          designed to enhance your lifestyle. From durable materials to cutting-edge  
+          technology, every detail is crafted for excellence.
         </p>
         <p className="lg:max-w-2xl text-base md:text-xl lg:text-2xl font-palanquin text-slate-gray">
-          Our dedication to detail and excellence ensures your satisfaction.
+          Whether you're looking for performance, style, or reliability, our products  
+          deliver unmatched quality to meet your everyday needs.
         </p>
       </motion.div>
 

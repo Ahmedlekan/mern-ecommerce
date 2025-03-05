@@ -9,7 +9,7 @@ const Footer = () => {
         flex-wrap max-lg:flex-col"
       >
   
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col items-start font-montserrat">
           <span className="text-2xl font-bold tracking-tight">
             <Link to="/">Diplo.com</Link>
           </span>
@@ -59,7 +59,7 @@ const Footer = () => {
         max-sm:flex-col max-sm:items-center"
       >
         <p>Copyright. All rights Reserved.</p>
-        <p className="cursor-pointer font-montserrat">Terms & Condition</p>
+        <p className="cursor-pointer font-palanquin">Terms & Condition</p>
       </div>
 
     </footer>
