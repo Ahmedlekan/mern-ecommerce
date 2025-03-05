@@ -67,7 +67,6 @@ router.get("/", verifyToken, async (req : Request, res: Response)=>{
     }
 })
 
-
 // GET a single product from the list of added hotel
 router.get("/:id", verifyToken, async (req: Request, res: Response) => {
   

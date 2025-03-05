@@ -8,7 +8,6 @@ import authRoutes from "./routes/auth"
 import * as path from "path";
 import adminRoute from "./routes/admin"
 import generalRoute from "./routes/general"
-import commonRoute from "./routes/common"
 import StripeRoute from "./routes/stripe"
 import {v2 as cloudinary} from 'cloudinary';
 
@@ -42,7 +41,6 @@ app.use("/api/users", userRoutes)
 app.use("/api/auth", authRoutes)
 app.use("/api/admin", adminRoute)
 app.use("/api/general", generalRoute)
-app.use("/api/common", commonRoute)
 app.use("/api/stripe", StripeRoute )
 
 app.get("*", (req: Request, res: Response) => {

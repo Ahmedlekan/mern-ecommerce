@@ -93,12 +93,12 @@ router.get("/general-products",  async (req : Request, res: Response)=>{
 
 
 // Add to cart route
-router.post("/add-to-cart", async (req, res) => {
+router.post("/add-to-cart", async (req:Request, res:Response) => {
 
     try {
 
-        const userId = req.userId || "guest";; // Extracted from the decoded JWT token
-        const { productId, quantity } = req.body;        
+        const userId = req.userId || "guest"; // Extracted from the decoded JWT token
+        const { productId, quantity } = req.body;  
         
         // Fetch the full product details from the database
         const product = await Product.findById(productId);
@@ -137,7 +137,7 @@ router.post("/add-to-cart", async (req, res) => {
 });
 
 // fetch all cart items
-router.get("/fetch-cart-items", async (req, res) => {
+router.get("/fetch-cart-items", async (req: Request, res:Response) => {
     const userId = req.userId || "guest";
 
     try {
@@ -186,7 +186,7 @@ router.get("/:id", async(req:Request, res: Response)=>{
 })
 
 // Update cart item quantity
-router.patch("/update-cart-quantity", async (req, res) => {
+router.patch("/update-cart-quantity", async (req:Request, res:Response) => {
     const userId = req.userId || "guest";
     const { productId, quantity } = req.body;
 
@@ -216,7 +216,7 @@ router.patch("/update-cart-quantity", async (req, res) => {
 });
 
 // Delete a product from the cart
-router.delete("/delete-cart-item", async (req, res) => {
+router.delete("/delete-cart-item", async (req:Request, res:Response) => {
     const userId = req.userId || "guest";
     const { productId } = req.body;
 

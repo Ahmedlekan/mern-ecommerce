@@ -8,6 +8,7 @@ const ProductSchema = new mongoose.Schema(
       required: true, 
       index: true 
     },
+    
     imageUrls: { type: [String], required: true },
     title: {
       type: String, 

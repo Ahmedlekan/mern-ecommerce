@@ -59,3 +59,20 @@ export type CartType = {
   items: CartItem[]; 
 }
 
+export type FavoriteItemItemsProps = {
+  productId: string
+  title: string
+  price: number;
+  salePrice: number;
+  image: string[];
+};
+ 
+export type FavoriteItem = {
+  productId: ProductsType 
+};
+
+export type FavoriteType = {
+  userId: string
+  items: FavoriteItem[]; 
+}
+
